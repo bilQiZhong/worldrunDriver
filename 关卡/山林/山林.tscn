@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dn1xktr1xxcxg"]
+
+[ext_resource type="Script" uid="uid://dg5hu2kexbqwi" path="res://关卡/山林/山林.gd" id="1_rku26"]
+[ext_resource type="Script" uid="uid://cb6gbs2k4i861" path="res://关卡/山林/path_follow_3d.gd" id="2_rku26"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rku26"]
+size = Vector3(62.354294, 0.7970886, 95.410706)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vmdxj"]
+sky_top_color = Color(0.5907287, 0.75232023, 0.9095065, 1)
+sky_horizon_color = Color(1, 1, 1, 1)
+sky_curve = 0.17230487
+
+[sub_resource type="Sky" id="Sky_rku26"]
+sky_material = SubResource("ProceduralSkyMaterial_vmdxj")
+
+[sub_resource type="Environment" id="Environment_nyuib"]
+background_mode = 2
+sky = SubResource("Sky_rku26")
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+
+[sub_resource type="Curve3D" id="Curve3D_vmdxj"]
+bake_interval = 512.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0)
+}
+point_count = 1
+
+[node name="山林" type="Node3D" unique_id=889151122]
+script = ExtResource("1_rku26")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1881566172]
+transform = Transform3D(4.17, 0, 0, 0, 4.17, 0, 0, 0, 4.17, 0.538661, -6.425562, -1.2923756)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1860426320]
+shape = SubResource("BoxShape3D_rku26")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1007176805]
+environment = SubResource("Environment_nyuib")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1209678707]
+transform = Transform3D(0.7289925, 0.3630553, 0.58031094, -0.6845217, 0.38664165, 0.6180116, 0, -0.8477613, 0.53037804, 16.21283, 7.662145, 0)
+shadow_enabled = true
+
+[node name="Path3D" type="Path3D" parent="." unique_id=1671710759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5566311, 23.323982, -2.4264274)
+curve = SubResource("Curve3D_vmdxj")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1182923990]
+transform = Transform3D(0.9999963, 0, 0, 0, 0.99998987, 0, 0, 0, 0.9999916, 33.303703, 3.0517578e-05, 19.35636)
+rotation_mode = 0
+script = ExtResource("2_rku26")
+
+[node name="Camera3D" type="Camera3D" parent="Path3D/PathFollow3D" unique_id=1599870825]
+transform = Transform3D(1.0000043, 0, 0, 0, 1.0000101, 0, 0, 0, 1.0000079, 0, 0, 0)

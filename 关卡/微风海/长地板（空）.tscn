@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d3n5g34kwxall"]
+
+[ext_resource type="PackedScene" uid="uid://dwujcq163tj6c" path="res://关卡/微风海/外部文件/地板.blend" id="1_6qrf0"]
+
+[node name="地板(空)" type="Node3D" unique_id=739954319]
+
+[node name="地板" parent="." unique_id=2134767855 instance=ExtResource("1_6qrf0")]
+transform = Transform3D(1, 0, 0, 0, 2.9761498, 0, 0, 0, 1, 0, 3.05111, 0)

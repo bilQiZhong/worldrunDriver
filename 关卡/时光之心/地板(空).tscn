@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dikj10e0mrmrn"]
+
+[ext_resource type="PackedScene" uid="uid://dudw8rs7ednrh" path="res://关卡/时光之心/外部文件/地板.blend" id="1_s35ys"]
+
+[node name="地板(空)" type="Node3D" unique_id=739954319]
+
+[node name="地板" parent="." unique_id=2134767855 instance=ExtResource("1_s35ys")]

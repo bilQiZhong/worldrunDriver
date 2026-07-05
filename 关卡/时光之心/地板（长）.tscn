@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c2g0f4o1y6qxj"]
+
+[ext_resource type="Script" uid="uid://cidbex17wx554" path="res://关卡/时光之心/no_move.gd" id="1_grrcf"]
+[ext_resource type="PackedScene" uid="uid://dudw8rs7ednrh" path="res://关卡/时光之心/外部文件/地板.blend" id="2_duldo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gj2b4"]
+size = Vector3(2.001831, 11.630371, 1.987793)
+
+[sub_resource type="Animation" id="Animation_xu5px"]
+resource_name = "up"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u136s"]
+_data = {
+&"up": SubResource("Animation_xu5px")
+}
+
+[node name="地板" type="Node3D" unique_id=811646128]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=879700413]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+script = ExtResource("1_grrcf")
+
+[node name="地板" parent="CharacterBody3D" unique_id=2134767855 instance=ExtResource("2_duldo")]
+transform = Transform3D(1, 0, 0, 0, 2.9, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=527834599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0010375977, 2.8566704, 0.00024414063)
+shape = SubResource("BoxShape3D_gj2b4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D" unique_id=2022773402]
+libraries/ = SubResource("AnimationLibrary_u136s")

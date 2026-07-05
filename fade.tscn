@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://e3afeoaxgyi1"]
+
+[ext_resource type="Shader" uid="uid://co5bqul60ehol" path="res://gs.gdshader" id="1_42d40"]
+[ext_resource type="Script" uid="uid://bo0hj6i2fxvms" path="res://backgrounds.gd" id="2_42d40"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dg77c"]
+shader = ExtResource("1_42d40")
+shader_parameter/progress = 1.0
+
+[node name="background" type="Panel" unique_id=398203774]
+material = SubResource("ShaderMaterial_dg77c")
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("2_42d40")
